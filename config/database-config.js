@@ -1,22 +1,22 @@
-// var mysql = require("mysql");
+var mysql = require("mysql");
 
-// /**
-//  * database connection
-//  */
+/**
+ * database connection
+ */
 
-// var connection = mysql.createConnection({
-//   host: "localhost",
-//   user: "",
-//   password: "",
-//   database: "test",
-//   port: 20954
-// });
+var connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "test",
+  port: 3306
+});
 
-// connection.connect(function(err) {
-//   if (err) {
-//     console.log("ERROR" + err);
-//   } else {
-//     console.log("CONNECTED");
-//   }
-// });
-// module.exports = connection;
+connection.connect(function(err) {
+  if (err) {
+    console.log("ERROR" + err);
+  } else {
+    console.log("CONNECTED");
+  }
+});
+module.exports = connection;
