@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var ServantsRouter = require('./routes/Servants');
+var ClientsRouter = require('./routes/Clients');
 
 var bodyParser = require("body-parser");
 var app = express();
@@ -43,6 +45,8 @@ app.use(
 app.use(bodyParser.json());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/servants', ServantsRouter);
+app.use('/client', ClientsRouter);
 // asdl
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
