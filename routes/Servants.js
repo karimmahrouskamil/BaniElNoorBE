@@ -5,10 +5,8 @@ var Connection = require("../config/database-config");
 router.get("/", function(req, res, next) {
   res.send("Servants are here");
 });
-router.get("/get", function(req, res, next) {
- 
+router.get("/getServants", function(req, res, next) {
   Connection.query("SELECT * FROM Servants", function(error, results, fields) {
-   
     if (error) throw error;
     console.log("The solution is: ", results);
     res.send(results);
