@@ -20,7 +20,6 @@ router.post("/postTest", async function(req, res, next) {
     eachData.Name,
     eachData.info,
     eachData.GraduationYearID,
-    eachData.AddressID,
     eachData.Email,
     eachData.LocationX,
     eachData.LocationY,
@@ -37,7 +36,7 @@ router.post("/postTest", async function(req, res, next) {
   console.log(values);
   
   await Connection.query(
-    "INSERT INTO `Clients` (`Name`, `info`, `GraduationYearID`,`AddressID`, `Email`, `LocationX`, `LocationY`, `fatherOfConfession`, `servantFollowing`, `clientCategoryID`, `chomosya`, `MobilePhone`, `HomePhone`, `fatherPhone`, `motherPhone`, `Class`, `Zone`) VALUES ?",
+    "INSERT INTO `Clients` (`Name`, `info`, `GraduationYearID`, `Email`, `LocationX`, `LocationY`, `fatherOfConfession`, `servantFollowing`, `clientCategoryID`, `chomosya`, `MobilePhone`, `HomePhone`, `fatherPhone`, `motherPhone`, `Class`, `Zone`) VALUES ?",
     [values],
     function(error, results, fields) {
       if (error) throw error;
