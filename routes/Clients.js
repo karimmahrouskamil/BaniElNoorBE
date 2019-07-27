@@ -32,11 +32,17 @@ router.post("/postTest", async function(req, res, next) {
     eachData.fatherPhone,
     eachData.motherPhone,
     eachData.Class,
-    eachData.Zone  ]);
+    eachData.Zone,
+    eachData.streetName,
+    eachData.floorNumber,
+    eachData.buildingNumber,
+    eachData.flatNumber,
+    eachData.streetDetails
+  ]);
   console.log(values);
-  
+
   await Connection.query(
-    "INSERT INTO `Clients` (`Name`, `info`, `GraduationYearID`, `Email`, `LocationX`, `LocationY`, `fatherOfConfession`, `servantFollowing`, `clientCategoryID`, `chomosya`, `MobilePhone`, `HomePhone`, `fatherPhone`, `motherPhone`, `Class`, `Zone`) VALUES ?",
+    "INSERT INTO `Clients` (`Name`, `info`, `GraduationYearID`, `Email`, `LocationX`, `LocationY`, `fatherOfConfession`, `servantFollowing`, `clientCategoryID`, `chomosya`, `MobilePhone`, `HomePhone`, `fatherPhone`, `motherPhone`, `Class`, `Zone`, `streetName` , `floorNumber` , `buildingNumber` , `flatNumber` , `streetDetails`) VALUES ?",
     [values],
     function(error, results, fields) {
       if (error) throw error;
