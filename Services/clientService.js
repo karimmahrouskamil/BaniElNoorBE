@@ -1,7 +1,7 @@
 var Promise = require("promise");
 
 // schemaas 
-var CLientModel = require("../Schema/ClientSchema");
+var CLientSchema = require("../Schema/ClientSchema");
 var ServantSchema = require("../Schema/ServantSchema");
 var PriestSchema = require("../Schema/PriestSchema");
 var CategorytSchema = require("../Schema/CategoriesSchema");
@@ -16,20 +16,20 @@ module.exports.getAllClients = function() {
   return new Promise(function(resolve, reject) {
     Connection.query(
       "SELECT * FROM ?? as CL inner join ?? as PR  on CL." +
-        CLientModel.CLIENT_TABLE.ClientsFatherOfConfession +
+        CLientSchema.CLIENT_TABLE.ClientsFatherOfConfession +
         " = PR.ID inner join ?? as SE on CL." +
-        CLientModel.CLIENT_TABLE.ClientServantFollowing +
+        CLientSchema.CLIENT_TABLE.ClientServantFollowing +
         " = SE.ID inner join ?? as Ca  on CL." +
-        CLientModel.CLIENT_TABLE.clientCategoryID +
+        CLientSchema.CLIENT_TABLE.clientCategoryID +
         " = Ca.ID inner join ?? as Zo on CL." +
-        CLientModel.CLIENT_TABLE.ClientZone +
+        CLientSchema.CLIENT_TABLE.ClientZone +
         " = Zo.ID inner join ?? as CLA on CL." +
-        CLientModel.CLIENT_TABLE.ClientClass +
+        CLientSchema.CLIENT_TABLE.ClientClass +
         " = CLA.ID inner join ?? as SCH on CL." +
-        CLientModel.CLIENT_TABLE.ClientSchoolID +
+        CLientSchema.CLIENT_TABLE.ClientSchoolID +
         " = SCH.ID",
       [
-        CLientModel.CLIENT_TABLE.TableName,
+        CLientSchema.CLIENT_TABLE.TableName,
         PriestSchema.PRIEST_TABLE.TableName,
         ServantSchema.SERVANT_TABLE.TableName,
         CategorytSchema.CATEGRORIES_TABLE.TableName,
