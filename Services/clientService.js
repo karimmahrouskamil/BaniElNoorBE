@@ -1,11 +1,15 @@
 var Promise = require("promise");
-var CLientModel = require("./../Models/ClientModel");
-var ServantModel = require("./../Models/ServantModel");
-var PriestModel = require("./../Models/PriestModel");
-var CategorytModel = require("./../Models/CategoriesModel");
-var ZoneModel = require("./../Models/ZoneModel");
-var ClassModel = require("./../Models/ClassModel");
-var SchoolModel = require("./../Models/SchoolModel");
+
+// schemaas 
+var CLientModel = require("../Schema/ClientSchema");
+var ServantSchema = require("../Schema/ServantSchema");
+var PriestSchema = require("../Schema/PriestSchema");
+var CategorytSchema = require("../Schema/CategoriesSchema");
+var ZoneSchema = require("../Schema/ZoneSchema");
+var ClassSchema = require("../Schema/ClassSchema");
+var SchoolSchema = require("../Schema/SchoolSchema");
+
+// connection to db 
 var Connection = require("../config/database-config");
 
 module.exports.getAllClients = function() {
@@ -26,12 +30,12 @@ module.exports.getAllClients = function() {
         " = SCH.ID",
       [
         CLientModel.CLIENT_TABLE.TableName,
-        PriestModel.PRIEST_TABLE.TableName,
-        ServantModel.SERVANT_TABLE.TableName,
-        CategorytModel.CATEGRORIES_TABLE.TableName,
-        ZoneModel.ZONE_TABLE.TableName,
-        ClassModel.CLASS_TABLE.TableName,
-        SchoolModel.SCHOOL_TABLE.TableName
+        PriestSchema.PRIEST_TABLE.TableName,
+        ServantSchema.SERVANT_TABLE.TableName,
+        CategorytSchema.CATEGRORIES_TABLE.TableName,
+        ZoneSchema.ZONE_TABLE.TableName,
+        ClassSchema.CLASS_TABLE.TableName,
+        SchoolSchema.SCHOOL_TABLE.TableName
       ],
       function(error, results, fields) {
         if (error) {
