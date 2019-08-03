@@ -1,15 +1,13 @@
 var Promise = require("promise");
 var CLientModel = require("./../Models/ClientModel");
-var clientTable = "Clients";
+var ServantModel = require("./../Models/ServantModel");
+var PriestModel = require("./../Models/PriestModel");
+var CategorytModel = require("./../Models/CategoriesModel");
+var ZoneModel = require("./../Models/ZoneModel");
+var ClassModel = require("./../Models/ClassModel");
+var SchoolModel = require("./../Models/SchoolModel");
 var Connection = require("../config/database-config");
-var ClientsTable = "Clients";
-var PriestTable = "Priests";
-var ServantsTable = "Servants";
-var CategoriesTable = "Categories";
-var ZoneTable = "Zone";
-var ClassTable = "Class";
-var SchoolTable = "School";
-var ClientSchema = "ClientsFatherOfConfession";
+
 module.exports.getAllClients = function() {
   return new Promise(function(resolve, reject) {
     Connection.query(
@@ -28,18 +26,18 @@ module.exports.getAllClients = function() {
         " = SCH.ID",
       [
         CLientModel.CLIENT_TABLE.TableName,
-        PriestTable,
-        ServantsTable,
-        CategoriesTable,
-        ZoneTable,
-        ClassTable,
-        SchoolTable
+        PriestModel.PRIEST_TABLE.TableName,
+        ServantModel.SERVANT_TABLE.TableName,
+        CategorytModel.CATEGRORIES_TABLE.TableName,
+        ZoneModel.ZONE_TABLE.TableName,
+        ClassModel.CLASS_TABLE.TableName,
+        SchoolModel.SCHOOL_TABLE.TableName
       ],
       function(error, results, fields) {
         if (error) {
           reject(error);
         } else {
-        //   console.log("result   ====> " + JSON.stringify(results));
+          //   console.log("result   ====> " + JSON.stringify(results));
           resolve(results);
         }
       }

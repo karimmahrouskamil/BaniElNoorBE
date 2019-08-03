@@ -1,5 +1,6 @@
 module.exports.CLIENT_TABLE = {
   TableName: "Clients",
+  ID: 'ID',
   ClientName: "ClientName",
   ClientInfo: "ClientInfo",
   ClientGraduationYearID: "ClientGraduationYearID",
