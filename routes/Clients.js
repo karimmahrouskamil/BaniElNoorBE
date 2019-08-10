@@ -3,8 +3,10 @@ var router = express.Router();
 var CLientService = require("./../Services/clientService");
 var Connection = require("../config/database-config");
 /* GET users listing. */
-router.get("/", function(req, res, next) {
-  res.send("Clients are here");
+router.get("/test", function(req, res, next) {
+  // querry data base 
+  // result => data 
+  res.send("data");
 });
 router.get("/getClients", function(req, res, next) {
   Connection.query("SELECT * FROM Priests", function(error, results, fields) {
